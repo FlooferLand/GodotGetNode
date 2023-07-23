@@ -1,4 +1,4 @@
-﻿namespace GetNodeAttribute;
+﻿namespace GodotGetNode;
 
 using System.Text;
 using Microsoft.CodeAnalysis;

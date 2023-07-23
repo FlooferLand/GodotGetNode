@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetNodeAttribute", "GetNodeAttribute.csproj", "{E5F40436-558F-43F3-A6FD-E930700315C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotGetNode", "GodotGetNode.csproj", "{E5F40436-558F-43F3-A6FD-E930700315C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

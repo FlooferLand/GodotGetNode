@@ -31,9 +31,7 @@
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <IsRoslynComponent>true</IsRoslynComponent>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-
-        <RootNamespace>GetNodeAttribute</RootNamespace>
-        <PackageId>GetNodeAttribute</PackageId>
+        <PackageId>GodotGetNode</PackageId>
     </PropertyGroup>
 
     <ItemGroup>
