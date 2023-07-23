@@ -2,7 +2,7 @@
     
     <PropertyGroup>
         <PackageId>GodotGetNode</PackageId>
-        <Version>0.1.2-alpha3</Version>
+        <Version>0.1.2-alpha4</Version>
         <Authors>FlooferLand</Authors>
         <Description>
             Adds a GetNode attribute to your Godot project.
@@ -22,8 +22,7 @@
     </PropertyGroup>
     <ItemGroup>
         <!-- Including the source generator in the Nuget package -->
-        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
-
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
         <Content Include="godot_get_node\**\*.cs">
             <PackagePath>content;contentFiles\cs\any\godot_get_node</PackagePath>
             <Link>%(Filename)%(Extension)</Link>
