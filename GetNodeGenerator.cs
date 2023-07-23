@@ -1,4 +1,4 @@
-﻿namespace GodotGetNode;
+﻿// namespace GodotGetNode;
 
 using System.Text;
 using Microsoft.CodeAnalysis;
@@ -11,6 +11,15 @@ using System.Linq;
 
 // Originally based on https://github.com/godotengine/godot-proposals/issues/2425#issuecomment-1373034221 (thank you)
 // Will be rewritten to be faster/smarter, sometime.
+
+[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+public class GetNode : Attribute {
+    public string NodePath { get; private set; }
+    public GetNode() : this(string.Empty) { }
+    public GetNode(string nodePath) {
+        NodePath = nodePath;
+    }
+}
 
 [Generator]
 public class GetNodeGenerator : ISourceGenerator {
@@ -64,20 +73,15 @@ public class GetNodeGenerator : ISourceGenerator {
 
     public void Initialize(GeneratorInitializationContext context) {
         context.RegisterForPostInitialization(ctx => {
-            ctx.AddSource("GetNode",
-            @"using System;
-                using System.Collections.Generic;
-                using System.Linq;
-                using System.Threading.Tasks;
-
-                [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-                public class GetNode : Attribute {
-                    public string NodePath { get; private set; }
-                    public GetNode() : this(string.Empty) { }
-                    public GetNode(string nodePath) {
-                        NodePath = nodePath;
-                    }
-                }".Trim());
+            /*ctx.AddSource("GetNode",
+            @"[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+                    public class GetNode : Attribute {
+                        public string NodePath { get; private set; }
+                        public GetNode() : this(string.Empty) { }
+                        public GetNode(string nodePath) {
+                            NodePath = nodePath;
+                        }
+                    }".Trim());*/
         });
         context.RegisterForSyntaxNotifications(() => new SyntaxReceiver());
     }
