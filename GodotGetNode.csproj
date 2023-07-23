@@ -2,7 +2,7 @@
     
     <PropertyGroup>
         <PackageId>GodotGetNode</PackageId>
-        <Version>0.1.1</Version>
+        <Version>0.1.2-alpha2</Version>
         <Authors>FlooferLand</Authors>
         <Description>
             Adds a GetNode attribute to your Godot project.
@@ -15,6 +15,26 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
+    
+    <!-- Source-gen specific stuff -->
+    <PropertyGroup>
+        <IsTool>true</IsTool>
+    </PropertyGroup>
+    <ItemGroup>
+        <!-- Including the source generator in the Nuget package -->
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" />
+
+        <Content Include="godot_get_node\**\*.cs">
+            <PackagePath>content;contentFiles\cs\any\godot_get_node</PackagePath>
+            <Link>%(Filename)%(Extension)</Link>
+            <Pack>true</Pack>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <!--<Content Include="build/**/*.*">
+            <Pack>true</Pack>
+            <PackagePath>build</PackagePath>
+        </Content>-->
+    </ItemGroup>
     
     <!--<PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
