@@ -3,8 +3,6 @@
 
 ---
 
-<br/>
-
 Godot Mono code generator to help you get your nodes
 
 ## Example:

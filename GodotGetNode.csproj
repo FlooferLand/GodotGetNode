@@ -2,7 +2,7 @@
     
     <PropertyGroup>
         <PackageId>GodotGetNode</PackageId>
-        <Version>0.1.2-alpha2</Version>
+        <Version>0.1.2-alpha3</Version>
         <Authors>FlooferLand</Authors>
         <Description>
             Adds a GetNode attribute to your Godot project.
