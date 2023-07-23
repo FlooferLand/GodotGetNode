@@ -1,5 +1,11 @@
 ﻿# GetNodeAttribute
-Godot Mono code generator to help you get your nodes 
+#### WARNING! Package is still a work in progress!
+
+---
+
+<br/>
+
+Godot Mono code generator to help you get your nodes
 
 ## Example:
 ```csharp
