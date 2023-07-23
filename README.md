@@ -1,4 +1,4 @@
-﻿# GetNodeAttribute
+﻿# GodotGetNode
 #### WARNING! Package is still a work in progress!
 
 ---
@@ -9,7 +9,7 @@ Godot Mono code generator to help you get your nodes
 
 ## Example:
 ```csharp
-using GetNodeAttribute;
+using GodotGetNode;
 
 public partial class MyNode : Node2D {
 	// Specify the name if you want to
