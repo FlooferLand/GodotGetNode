@@ -23,23 +23,13 @@
     <ItemGroup>
         <!-- Including the source generator in the Nuget package -->
         <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
-        <Content Include="godot_get_node\**\*.cs">
+        <Content Include="godot_get_node\**\*.*">
             <PackagePath>content;contentFiles\cs\any\godot_get_node</PackagePath>
             <Link>%(Filename)%(Extension)</Link>
             <Pack>true</Pack>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
-        <!--<Content Include="build/**/*.*">
-            <Pack>true</Pack>
-            <PackagePath>build</PackagePath>
-        </Content>-->
     </ItemGroup>
-    
-    <!--<PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup> -->
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
