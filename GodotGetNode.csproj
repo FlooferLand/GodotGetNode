@@ -1,16 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
     
     <PropertyGroup>
-        <PackageId>GodotGetNodeAttribute</PackageId>
+        <PackageId>GodotGetNode</PackageId>
         <Version>0.1.0</Version>
         <Authors>FlooferLand</Authors>
         <Description>
             Adds a `GetNode("name")` attribute to your Godot project.
             Allowing you to easily get nodes without having to throw in a bunch of stuff in your `_OnReady` function.
         </Description>
-        <RepositoryUrl>https://github.com/FlooferLand/GetNodeAttribute</RepositoryUrl>
-        <PackageProjectUrl>https://github.com/FlooferLand/GetNodeAttribute</PackageProjectUrl>
-        <PackageLicense>https://raw.githubusercontent.com/FlooferLand/GetNodeAttribute/main/LICENSE</PackageLicense>
+        <RepositoryUrl>https://github.com/FlooferLand/GodotGetNode</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/FlooferLand/GodotGetNode</PackageProjectUrl>
+        <PackageLicense>https://raw.githubusercontent.com/FlooferLand/GodotGetNode/main/LICENSE</PackageLicense>
         <PackageTags>godot onready getnode attribute</PackageTags>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
