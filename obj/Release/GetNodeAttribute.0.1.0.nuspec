@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>GetNodeAttribute</id>
+    <version>0.1.0</version>
+    <authors>FlooferLand</authors>
+    <projectUrl>https://github.com/FlooferLand/GetNodeAttribute</projectUrl>
+    <description>Adds a `GetNode("name")` attribute to your Godot project.
+            Allowing you to easily get nodes without having to throw in a bunch of stuff in your `_OnReady` function.</description>
+    <tags>godot onready getnode attribute</tags>
+    <repository url="https://github.com/FlooferLand/GetNodeAttribute" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.CodeAnalysis" version="4.6.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.CodeAnalysis.CSharp" version="4.6.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="F:\Github\GetNodeAttribute\bin\Release\netstandard2.0\GetNodeAttribute.dll" target="lib\netstandard2.0\GetNodeAttribute.dll" />
+  </files>
+</package>

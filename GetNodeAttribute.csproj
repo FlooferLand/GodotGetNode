@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    
+    <PropertyGroup>
+        <PackageId>GodotGetNodeAttribute</PackageId>
+        <Version>0.1.0</Version>
+        <Authors>FlooferLand</Authors>
+        <Description>
+            Adds a `GetNode("name")` attribute to your Godot project.
+            Allowing you to easily get nodes without having to throw in a bunch of stuff in your `_OnReady` function.
+        </Description>
+        <RepositoryUrl>https://github.com/FlooferLand/GetNodeAttribute</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/FlooferLand/GetNodeAttribute</PackageProjectUrl>
+        <PackageLicense>https://raw.githubusercontent.com/FlooferLand/GetNodeAttribute/main/LICENSE</PackageLicense>
+        <PackageTags>godot onready getnode attribute</PackageTags>
+    </PropertyGroup>
+    
+    <!--<PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup> -->
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <IsPackable>true</IsPackable>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <IsRoslynComponent>true</IsRoslynComponent>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <RootNamespace>GetNodeAttribute</RootNamespace>
+        <PackageId>GetNodeAttribute</PackageId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis" Version="[4.6,)" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="[4.6,)" />
+    </ItemGroup>
+    
+</Project>
