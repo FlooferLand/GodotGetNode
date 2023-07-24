@@ -15,3 +15,13 @@ public class GetNode : Attribute {
 		NodePath = nodePath;
 	}
 }
+
+namespace NodeTest {
+	public class GetNodeTest : Attribute {
+		public string NodePath { get; private set; }
+		public GetNodeTest() : this(string.Empty) { }
+		public GetNodeTest(string nodePath) {
+			NodePath = nodePath;
+		}
+	}
+}

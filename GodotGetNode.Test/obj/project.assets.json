@@ -2,13 +2,7 @@
   "version": 3,
   "targets": {
     "net7.0": {
-      "Godot.SourceGenerators/4.2.0-dev.1": {
-        "type": "package",
-        "build": {
-          "build/Godot.SourceGenerators.props": {}
-        }
-      },
-      "GodotSharp/4.2.0-dev.1": {
+      "GodotSharp/4.1.1": {
         "type": "package",
         "compile": {
           "lib/net6.0/GodotSharp.dll": {
@@ -21,10 +15,10 @@
           }
         }
       },
-      "GodotSharpEditor/4.2.0-dev.1": {
+      "GodotSharpEditor/4.1.1": {
         "type": "package",
         "dependencies": {
-          "GodotSharp": "4.2.0-dev.1"
+          "GodotSharp": "4.1.1"
         },
         "compile": {
           "lib/net6.0/GodotSharpEditor.dll": {
@@ -518,7 +512,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "GodotGetNode/0.1.2-alpha5": {
+      "GodotGetNode/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -535,40 +529,27 @@
     }
   },
   "libraries": {
-    "Godot.SourceGenerators/4.2.0-dev.1": {
-      "sha512": "sHfrvucgliFZvOfzrpCNZbACHMqZhMf4iuPYgeoT6jN6uIgfXWlcWNs4vRgP2dHP8xVg6aAqRrnYqDjdq4tgIg==",
+    "GodotSharp/4.1.1": {
+      "sha512": "r07Z+O82m5dAqeJMYHDJCGdD0p1gb8vNVi+kIFYGjDNk39Ys3fgsm+x7ZpHEfNSW2oHTn62SCuCE38UAVy17MA==",
       "type": "package",
-      "path": "godot.sourcegenerators/4.2.0-dev.1",
+      "path": "godotsharp/4.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "analyzers/dotnet/cs/Godot.SourceGenerators.dll",
-        "build/Godot.SourceGenerators.props",
-        "godot.sourcegenerators.4.2.0-dev.1.nupkg.sha512",
-        "godot.sourcegenerators.nuspec"
-      ]
-    },
-    "GodotSharp/4.2.0-dev.1": {
-      "sha512": "1kozoxGnYKiFGLNsrsZ4ZuubJsEek36jXGjEMsKZCYdFBg6q+WTVGiha29L3268E1iqXMJ9EbFD8oqcIUrKI1A==",
-      "type": "package",
-      "path": "godotsharp/4.2.0-dev.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "godotsharp.4.2.0-dev.1.nupkg.sha512",
+        "godotsharp.4.1.1.nupkg.sha512",
         "godotsharp.nuspec",
         "lib/net6.0/GodotSharp.dll",
         "lib/net6.0/GodotSharp.xml"
       ]
     },
-    "GodotSharpEditor/4.2.0-dev.1": {
-      "sha512": "/rXhot1eXPTP6BSNJ855f1K5k4WVqA3wZPgQ1KFHlkMMFC59wcnQ36wk4o7SyQ4nMCy+CBcJ/1wHM28q60+rxQ==",
+    "GodotSharpEditor/4.1.1": {
+      "sha512": "t29ltWPBHhWDKncK2XFXmHx29jGOqtsR9PFdkjIcRWG5+PdcCJNrCng5cls/H+zGtluGF5L6rNBFbFlBBvTgkA==",
       "type": "package",
-      "path": "godotsharpeditor/4.2.0-dev.1",
+      "path": "godotsharpeditor/4.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "godotsharpeditor.4.2.0-dev.1.nupkg.sha512",
+        "godotsharpeditor.4.1.1.nupkg.sha512",
         "godotsharpeditor.nuspec",
         "lib/net6.0/GodotSharpEditor.dll",
         "lib/net6.0/GodotSharpEditor.xml"
@@ -1126,7 +1107,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "GodotGetNode/0.1.2-alpha5": {
+    "GodotGetNode/1.0.0": {
       "type": "project",
       "path": "../GodotGetNode/GodotGetNode.csproj",
       "msbuildProject": "../GodotGetNode/GodotGetNode.csproj"
@@ -1134,10 +1115,9 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Godot.SourceGenerators >= 4.2.0-dev.1",
-      "GodotGetNode >= 0.1.2-alpha5",
-      "GodotSharp >= 4.2.0-dev.1",
-      "GodotSharpEditor >= 4.2.0-dev.1"
+      "GodotGetNode >= 1.0.0",
+      "GodotSharp >= 4.1.1",
+      "GodotSharpEditor >= 4.1.1"
     ]
   },
   "packageFolders": {
@@ -1183,17 +1163,13 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
-          "Godot.SourceGenerators": {
-            "target": "Package",
-            "version": "[4.2.0-dev.1, )"
-          },
           "GodotSharp": {
             "target": "Package",
-            "version": "[4.2.0-dev.1, )"
+            "version": "[4.1.1, )"
           },
           "GodotSharpEditor": {
             "target": "Package",
-            "version": "[4.2.0-dev.1, )"
+            "version": "[4.1.1, )"
           }
         },
         "imports": [

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+    <metadata>
+        <id>GodotGetNode</id>
+        <version>0.1.2-alpha6</version>
+        <authors>FlooferLand</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <license type="expression">MIT</license>
+        <!-- <icon>icon.png</icon> -->
+        <repository>https://github.com/FlooferLand/GodotGetNode</repository>
+        <projectUrl>https://github.com/FlooferLand/GodotGetNode</projectUrl>
+        <description>
+            Adds a GetNode attribute to your Godot project.
+            Allowing you to easily get nodes without having to throw in a bunch of stuff in your `_OnReady` function.
+        </description>
+        <copyright>$copyright$</copyright>
+        <tags>Godot OnReady GetNode Attribute</tags>
+    </metadata>
+
+    <files>
+        <file src="..\README.md" target="" />
+        
+        <file src="*.dll"
+              target="analyzers\dotnet\cs"
+              exclude="**\Microsoft.CodeAnalysis.*;**\System.Collections.Immutable.*;**\System.Reflection.Metadata.*;**\System.Composition.*" />
+        
+        <file src="bin\Release\netstandard2.0\*.dll"
+              target="analyzers/dotnet/cs" />
+        
+        <file src="godot_get_node\**\*.*"
+              target="contentFiles/cs/any" />
+    </files>
+</package>

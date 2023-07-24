@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "sILWbz1HK0kkjUV3yCVx7jn34iStI/nboXZ7nnNJrg68ErOGRLW/TzxIO6BBp3Ql6+PBoX9WFk+yf4MKPyBnLA==",
+  "dgSpecHash": "E3/FTlktDr26Uhi3dU7QOLzfceYhZsFoVARsYopOnBAxtaC5wtnECatWb+neTYSn8GRiFwxetZDSc7CsCtsLAQ==",
   "success": true,
   "projectFilePath": "F:\\Github\\GodotGetNode\\GodotGetNode.Test\\GodotGetNode.Test.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\FlooferLand\\.nuget\\packages\\godot.sourcegenerators\\4.2.0-dev.1\\godot.sourcegenerators.4.2.0-dev.1.nupkg.sha512",
-    "C:\\Users\\FlooferLand\\.nuget\\packages\\godotsharp\\4.2.0-dev.1\\godotsharp.4.2.0-dev.1.nupkg.sha512",
-    "C:\\Users\\FlooferLand\\.nuget\\packages\\godotsharpeditor\\4.2.0-dev.1\\godotsharpeditor.4.2.0-dev.1.nupkg.sha512",
+    "C:\\Users\\FlooferLand\\.nuget\\packages\\godotsharp\\4.1.1\\godotsharp.4.1.1.nupkg.sha512",
+    "C:\\Users\\FlooferLand\\.nuget\\packages\\godotsharpeditor\\4.1.1\\godotsharpeditor.4.1.1.nupkg.sha512",
     "C:\\Users\\FlooferLand\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\FlooferLand\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\FlooferLand\\.nuget\\packages\\microsoft.codeanalysis.common\\4.6.0\\microsoft.codeanalysis.common.4.6.0.nupkg.sha512",

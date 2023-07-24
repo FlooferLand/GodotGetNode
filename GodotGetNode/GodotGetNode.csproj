@@ -1,37 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <PackageId>GodotGetNode</PackageId>
-        <Version>0.1.2-alpha5</Version>
-        <Authors>FlooferLand</Authors>
-        <Description>
-            Adds a GetNode attribute to your Godot project.
-            Allowing you to easily get nodes without having to throw in a bunch of stuff in your `_OnReady` function.
-        </Description>
-        <RepositoryUrl>https://github.com/FlooferLand/GodotGetNode</RepositoryUrl>
-        <PackageProjectUrl>https://github.com/FlooferLand/GodotGetNode</PackageProjectUrl>
-        <PackageLicense>https://raw.githubusercontent.com/FlooferLand/GodotGetNode/main/LICENSE</PackageLicense>
-        <PackageTags>godot onready getnode attribute</PackageTags>
+        <NuspecFile>GodotGetNode.nuspec</NuspecFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    </PropertyGroup>
-    
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <IsPackable>false</IsPackable>
-        <Nullable>enable</Nullable>
-        <LangVersion>latest</LangVersion>
-
-        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-        <IsRoslynComponent>true</IsRoslynComponent>
-
-        <RootNamespace>GodotGetNode</RootNamespace>
-        <PackageId>GodotGetNode</PackageId>
     </PropertyGroup>
     
     <!-- Source-gen specific stuff -->
     <PropertyGroup>
         <IsTool>true</IsTool>
+        <EnforceExtendedAnalyserRules>true</EnforceExtendedAnalyserRules>
+        <IncludeContentInPack>true</IncludeContentInPack>
     </PropertyGroup>
     <ItemGroup>
         <!-- Including the source generator in the Nuget package -->
@@ -43,39 +22,33 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
+    
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <IsPackable>true</IsPackable>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
 
-    <!-- Weird build stuff -->
-    <ItemGroup>
-        <Reference Include="System"/>
-        <Reference Include="System.Core"/>
-        <Reference Include="System.Data"/>
-        <Reference Include="System.Xml"/>
-    </ItemGroup>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <IsRoslynComponent>true</IsRoslynComponent>
+
+        <RootNamespace>GodotGetNode</RootNamespace>
+        <PackageId>GodotGetNode</PackageId>
+    </PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
+        <None Include="../LICENSE" Pack="true" PackagePath="" Visible="true" />
+        <None Include="../README.md" Pack="true" PackagePath="" Visible="true" />
+    </ItemGroup>
+
+    <!-- Weird build stuff -->    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="[3.3.4,)">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.6.0"/>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.6.0"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="[4.6.0,)"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="[4.6.0,)"/>
     </ItemGroup>
-
-
-
-    <ItemGroup>
-      <None Update="LICENSE">
-        <Pack>true</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
-      <None Update="README.md">
-        <Pack>true</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
-    </ItemGroup>
-
-
-
-
-
+    
 </Project>

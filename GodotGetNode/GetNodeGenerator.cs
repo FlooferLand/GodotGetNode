@@ -61,7 +61,7 @@ public class GetNodeGenerator : ISourceGenerator {
     }
 
     public void Initialize(GeneratorInitializationContext context) {
-        context.RegisterForPostInitialization(ctx => {
+        context.RegisterForPostInitialization(_ => {
             /*ctx.AddSource("GetNode",
                 @"
                     using System;

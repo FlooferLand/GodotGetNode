@@ -44,17 +44,13 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "Godot.SourceGenerators": {
-              "target": "Package",
-              "version": "[4.2.0-dev.1, )"
-            },
             "GodotSharp": {
               "target": "Package",
-              "version": "[4.2.0-dev.1, )"
+              "version": "[4.1.1, )"
             },
             "GodotSharpEditor": {
               "target": "Package",
-              "version": "[4.2.0-dev.1, )"
+              "version": "[4.1.1, )"
             }
           },
           "imports": [
@@ -78,7 +74,7 @@
       }
     },
     "F:\\Github\\GodotGetNode\\GodotGetNode\\GodotGetNode.csproj": {
-      "version": "0.1.2-alpha5",
+      "version": "1.0.0",
       "restore": {
         "projectUniqueName": "F:\\Github\\GodotGetNode\\GodotGetNode\\GodotGetNode.csproj",
         "projectName": "GodotGetNode",

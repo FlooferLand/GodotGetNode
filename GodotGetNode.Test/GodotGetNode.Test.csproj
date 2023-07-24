@@ -2,20 +2,27 @@
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
-        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
         <RootNamespace>GodotGetNode.Test</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
+    <!--ItemGroup>
         <ProjectReference Include="..\GodotGetNode\GodotGetNode.csproj"
                           OutputItemType="Analyzer"
                           ReferenceOutputAssembly="true"/>
+    </ItemGroup-->
+    
+    <ItemGroup>
+        <ProjectReference Include="..\GodotGetNode\GodotGetNode.csproj" />
+        <!--ProjectReference Include="GodotGetNode"
+                          Version="0.1.2-alpha6"
+                          OutputItemType="Analyzer"
+                          ReferenceOutputAssembly="true"/-->
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Godot.SourceGenerators" Version="4.2.0-dev.1" />
-      <PackageReference Include="GodotSharp" Version="4.2.0-dev.1" />
-      <PackageReference Include="GodotSharpEditor" Version="4.2.0-dev.1" />
+      <PackageReference Include="GodotSharp" Version="4.1.1" />
+      <PackageReference Include="GodotSharpEditor" Version="4.1.1" />
     </ItemGroup>
 
 </Project>

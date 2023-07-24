@@ -1,5 +1,0 @@
-F:\Github\GodotGetNode\GodotGetNode.Test\obj\Debug\net7.0\GodotGetNode.Test.csproj.AssemblyReference.cache
-F:\Github\GodotGetNode\GodotGetNode.Test\obj\Debug\net7.0\GodotGetNode.Test.GeneratedMSBuildEditorConfig.editorconfig
-F:\Github\GodotGetNode\GodotGetNode.Test\obj\Debug\net7.0\GodotGetNode.Test.AssemblyInfoInputs.cache
-F:\Github\GodotGetNode\GodotGetNode.Test\obj\Debug\net7.0\GodotGetNode.Test.AssemblyInfo.cs
-F:\Github\GodotGetNode\GodotGetNode.Test\obj\Debug\net7.0\GodotGetNode.Test.csproj.CoreCompileInputs.cache
