@@ -1,5 +1,4 @@
 namespace Test;
-using System;
 using Godot;
 
 #pragma warning disable CS0169

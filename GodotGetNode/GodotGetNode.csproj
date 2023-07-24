@@ -2,8 +2,6 @@
     <PropertyGroup>
         <PackageId>GodotGetNode</PackageId>
         <NuspecFile>GodotGetNode.nuspec</NuspecFile>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
     </PropertyGroup>
     
     <!-- Source-gen specific stuff -->
@@ -35,11 +33,6 @@
         <RootNamespace>GodotGetNode</RootNamespace>
         <PackageId>GodotGetNode</PackageId>
     </PropertyGroup>
-    
-    <ItemGroup>
-        <None Include="../LICENSE" Pack="true" PackagePath="" Visible="true" />
-        <None Include="../README.md" Pack="true" PackagePath="" Visible="true" />
-    </ItemGroup>
 
     <!-- Weird build stuff -->    
     <ItemGroup>
