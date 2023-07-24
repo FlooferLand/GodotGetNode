@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using Microsoft.CodeAnalysis;
 
 // Do not modify this in a user project unless you know what you're doing!
 

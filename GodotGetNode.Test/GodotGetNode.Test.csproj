@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <RootNamespace>GodotGetNode.Test</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\GodotGetNode\GodotGetNode.csproj"
+                          OutputItemType="Analyzer"
+                          ReferenceOutputAssembly="true"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Godot.SourceGenerators" Version="4.2.0-dev.1" />
+      <PackageReference Include="GodotSharp" Version="4.2.0-dev.1" />
+      <PackageReference Include="GodotSharpEditor" Version="4.2.0-dev.1" />
+    </ItemGroup>
+
+</Project>
