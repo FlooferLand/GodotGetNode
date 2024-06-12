@@ -6,6 +6,8 @@
         <Version>0.2.2</Version>
         <Authors>FlooferLand</Authors>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryType>GitHub</RepositoryType>
+        <RepositoryUrl>https://github.com/FlooferLand/GodotGetNode</RepositoryUrl>
         <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
     
@@ -50,4 +52,14 @@
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="[4.6.0,)"/>
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="[4.6.0,)"/>
     </ItemGroup>
+    
+    <!-- Even weirder build stuff -->
+    <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+        <ReadLinesFromFile File="../RELEASE-NOTES.md" >
+            <Output TaskParameter="Lines" ItemName="ReleaseNoteLines"/>
+        </ReadLinesFromFile>
+        <PropertyGroup>
+            <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
+        </PropertyGroup>
+    </Target>
 </Project>

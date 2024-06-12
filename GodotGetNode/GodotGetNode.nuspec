@@ -5,7 +5,6 @@
         <version>0.2.2</version>
         <authors>FlooferLand</authors>
         <readme>README.md</readme>
-        <releaseNotes>RELEASE-NOTES.md</releaseNotes>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <license type="expression">MIT</license>
         <!-- <icon>icon.png</icon> -->
