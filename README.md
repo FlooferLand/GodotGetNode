@@ -1,5 +1,7 @@
 ﻿# GodotGetNode
-![GitHub Issues](https://img.shields.io/github/issues/FlooferLand/GodotGetNode?link=https%3A%2F%2Fgithub.com%2FFlooferLand%2FGodotGetNode%2Fissues)
+![GitHub Issues](https://img.shields.io/github/issues/FlooferLand/GodotGetNode?style=plastic&logoColor=green&link=https%3A%2F%2Fgithub.com%2FFlooferLand%2FGodotGetNode%2Fissues)
+![NuGet Downloads](https://img.shields.io/nuget/dt/GodotGetNode?style=plastic&logoColor=orange&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FGodotGetNode)
+![NuGet Version](https://img.shields.io/nuget/v/GodotGetNode?style=plastic&logoColor=orange&link=https%3A%2F%2Fwww.nuget.org%2Fpackages%2FGodotGetNode)
 
 A production-ready Godot 4.x source generator to help you get your nodes!
 
