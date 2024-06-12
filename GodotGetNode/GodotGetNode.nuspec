@@ -21,6 +21,7 @@
 
     <files>
         <file src="../README.md" target="\" />
+        <file src="../RELEASE-NOTES.md" target="\" />
         
         <file src="*.dll"
               target="analyzers\dotnet\cs"
