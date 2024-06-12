@@ -2,11 +2,10 @@
 <package>
     <metadata>
         <id>GodotGetNode</id>
-        <version>0.2.0</version>
+        <version>0.2.1</version>
         <authors>FlooferLand</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <license type="expression">MIT</license>
-        <readme>README.md</readme>
         <!-- <icon>icon.png</icon> -->
         <repository>https://github.com/FlooferLand/GodotGetNode</repository>
         <projectUrl>https://github.com/FlooferLand/GodotGetNode</projectUrl>
