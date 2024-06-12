@@ -32,7 +32,7 @@ I don't update this repo often as it doesn't need any updates, but I've been usi
 
 If you do encounter any issues, please [open up an issue or a PR on the repository!](https://github.com/FlooferLand/GodotGetNode/issues)
 
-![Hide inlays in your IDE for the best experience](./hideInlays.png)
+![Hide inlays in your IDE for the best experience](https://raw.githubusercontent.com/FlooferLand/GodotGetNode/main/hideInlays.png)
 
 ## Compatibility
 _Actively tested for Godot 4.x_
