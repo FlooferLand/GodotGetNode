@@ -5,14 +5,15 @@ using Microsoft.CodeAnalysis.Text;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 
 // Originally based on https://github.com/godotengine/godot-proposals/issues/2425#issuecomment-1373034221 (thank you)
 // Will be rewritten to be faster/smarter, sometime.
 
 [Generator]
+#pragma warning disable CA1050
 public class GetNodeGenerator : ISourceGenerator {
+#pragma warning restore CA1050
     public void Execute(GeneratorExecutionContext context) {
         if (context.SyntaxContextReceiver is not SyntaxReceiver receiver)
             return;
@@ -25,20 +26,18 @@ public class GetNodeGenerator : ISourceGenerator {
             string className = names[1];
             bool isClassGeneric = className.Contains('<');
             string baseClassName = isClassGeneric ? className.Split('<')[0] : className;
-            string[] classGenerics = isClassGeneric ? className.Replace(">", "").Split('<')[1].Split(',') : [];
             result.AppendLine($"namespace {spaceName};");
             result.AppendLine("using Godot;");
             result.AppendLine("using System;");
             
             #region The Weird-Looking Code I'll Never Touch Again
-            string genericConstraints = isClassGeneric ? $" where {classGenerics[0]}: Object" : "";
             result.AppendLine($$"""
 
                                 partial class {{className}} {
                                     public {{baseClassName}}() {
                                         TreeEntered += () => {
                                 """);
-            getNodes.Value.ToList().ForEach(v => result.AppendLine($"\t\t {v.Trim()}"));
+            getNodes.Value?.ToList().ForEach(v => result.AppendLine($"\t\t {v.Trim()}"));
             result.AppendLine("""
                               
                                       };
@@ -74,7 +73,7 @@ public class GetNodeGenerator : ISourceGenerator {
 
 public class SyntaxReceiver : ISyntaxContextReceiver {
     public List<string> CodeLog { get; } = [];
-    public readonly Dictionary<string, List<string>> WorkItems = new();
+    public readonly Dictionary<string, List<string>?> WorkItems = new();
 
     public void OnVisitSyntaxNode(GeneratorSyntaxContext context) {
         try {
@@ -86,7 +85,8 @@ public class SyntaxReceiver : ISyntaxContextReceiver {
                 string getNodeCaller = "";
                 if (attribute != null) {
                     string? type = testClass.ContainingType.ToString();
-                    if (!WorkItems.TryGetValue(type, out var fields)) {
+                    List<string>? fields = [];
+                    if (type != null && !WorkItems.TryGetValue(type, out fields)) {
                         fields = [];
                         WorkItems.Add(type, fields);
                     }
@@ -148,7 +148,7 @@ public class SyntaxReceiver : ISyntaxContextReceiver {
                     
                     // Adding the field
                     string getNodeCallerToken = getNodeCaller.Length > 0 ? $"{getNodeCaller}." : "";
-                    fields.Add($"{testClass.Name} = {getNodeCallerToken}GetNode<{testClass.Type.Name}>(\"{finalGetNodePath}\");");
+                    fields?.Add($"{testClass.Name} = {getNodeCallerToken}GetNode<{testClass.Type.Name}>(\"{finalGetNodePath}\");");
                 }
             }
         }
