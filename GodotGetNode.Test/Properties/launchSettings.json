@@ -3,7 +3,7 @@
   "profiles": {
     "DebugRoslynSourceGenerator": {
       "commandName": "DebugRoslynComponent",
-      "targetProject": "../GodotGetNode.Sample/GodotGetNode.Sample.csproj"
+      "targetProject": "../GodotGetNode.Test/GodotGetNode.Test.csproj"
     }
   }
 }

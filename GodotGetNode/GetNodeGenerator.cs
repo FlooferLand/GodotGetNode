@@ -5,6 +5,7 @@ using Microsoft.CodeAnalysis.Text;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 
 // Originally based on https://github.com/godotengine/godot-proposals/issues/2425#issuecomment-1373034221 (thank you)
@@ -19,18 +20,22 @@ public class GetNodeGenerator : ISourceGenerator {
         // Generating the code
         foreach (var getNodes in receiver.WorkItems) {
             var result = new StringBuilder();
-            var names = getNodes.Key.Split('.');
-            var spaceName = names[0];
-            var className = names[1];
+            string[] names = getNodes.Key.Split('.');
+            string spaceName = names[0];
+            string className = names[1];
+            bool isClassGeneric = className.Contains('<');
+            string baseClassName = isClassGeneric ? className.Split('<')[0] : className;
+            string[] classGenerics = isClassGeneric ? className.Replace(">", "").Split('<')[1].Split(',') : [];
             result.AppendLine($"namespace {spaceName};");
             result.AppendLine("using Godot;");
             result.AppendLine("using System;");
             
             #region The Weird-Looking Code I'll Never Touch Again
+            string genericConstraints = isClassGeneric ? $" where {classGenerics[0]}: Object" : "";
             result.AppendLine($$"""
 
                                 partial class {{className}} {
-                                    public {{className}}() {
+                                    public {{baseClassName}}() {
                                         TreeEntered += () => {
                                 """);
             getNodes.Value.ToList().ForEach(v => result.AppendLine($"\t\t {v.Trim()}"));
@@ -42,12 +47,13 @@ public class GetNodeGenerator : ISourceGenerator {
                               """);
             #endregion
             
-            // Saving the code + 
-            var parsed = ($"\n{string.Join("\n", receiver.Log)}\n" + result).Trim();
+            // Saving the code
+            string fileName = $"{baseClassName}.g.cs";
+            string parsed = ($"\n{string.Join("\n", receiver.CodeLog)}\n" + result).Trim();
             if (Debugger.IsAttached) {
-                var parsedLc = $"---- {className}.cs ----\n";
-                var i = 0;
-                foreach (var line in parsed.Split('\n')) {
+                string parsedLc = $"---- {fileName} ----\n";
+                int i = 0;
+                foreach (string line in parsed.Split('\n')) {
                     parsedLc += $"[{i}] {line}\n";
                     i += 1;
                 }
@@ -56,7 +62,7 @@ public class GetNodeGenerator : ISourceGenerator {
                 // [Put a break-point here in case of emergency!]
                 Console.WriteLine(parsedLc);
             }
-            context.AddSource($"{className}.g.cs", SourceText.From(parsed, Encoding.UTF8));
+            context.AddSource(fileName, SourceText.From(parsed, Encoding.UTF8));
         }
     }
 
@@ -67,7 +73,7 @@ public class GetNodeGenerator : ISourceGenerator {
 }
 
 public class SyntaxReceiver : ISyntaxContextReceiver {
-    public List<string> Log { get; } = new();
+    public List<string> CodeLog { get; } = [];
     public readonly Dictionary<string, List<string>> WorkItems = new();
 
     public void OnVisitSyntaxNode(GeneratorSyntaxContext context) {
@@ -77,51 +83,80 @@ public class SyntaxReceiver : ISyntaxContextReceiver {
             foreach (var variableName in fieldDeclarationSyntax.Declaration.Variables) {
                 var testClass = (IFieldSymbol)context.SemanticModel.GetDeclaredSymbol(variableName)!;
                 var attribute = testClass.GetAttributes().FirstOrDefault(x => x.AttributeClass?.Name == "GetNode");
-                var getNodeCaller = "";
+                string getNodeCaller = "";
                 if (attribute != null) {
-                    var type = testClass.ContainingType.ToString();
+                    string? type = testClass.ContainingType.ToString();
                     if (!WorkItems.TryGetValue(type, out var fields)) {
-                        fields = new List<string>();
+                        fields = [];
                         WorkItems.Add(type, fields);
                     }
 
                     // Parsing special referring syntax
-                    string input = (attribute.ConstructorArguments.Length == 0)
+                    string? nodeParent = attribute.ConstructorArguments.Length >= 2
+                        ? $"{attribute.ConstructorArguments.First().Value}"
+                        : null;
+                    string nodePath = attribute.ConstructorArguments.Length == 0
                         ? testClass.Type.Name
-                        : $"{attribute.ConstructorArguments.First().Value}";
-                    string result = input;
-                    if (input.Contains("{") && input.Contains("}")) {
+                        : $"{attribute.ConstructorArguments.Last().Value}";
+                    string finalGetNodePath = nodePath;
+                    
+                    #region deprecated / unpreferred
+                    if (nodePath.Contains('{') && nodePath.Contains('}')) {
                         // Getting the referenced variable's name
-                        string referencedVar = "";
+                        string referencedVarName = "";
                         bool insideBlock = false;
-                        foreach (char c in input) {
+                        foreach (char c in nodePath) {
                             if (insideBlock && !"{}".Contains(c)) {
-                                referencedVar += c;
+                                referencedVarName += c;
                             }
-                                
-                            if (c == '{')
-                                insideBlock = true;
-                            else if (c == '}')
-                                insideBlock = false;
+
+                            insideBlock = c switch {
+                                '{' => true,
+                                '}' => false,
+                                _ => insideBlock
+                            };
                         }
                             
                         // TODO: Checking if the variable exists
-                        // var parent = context.Node.Parent;
-                            
+                        // var parent = input;
+                        // CodeLog.Add($"// START: {parent}");
+                        // CodeLog.Add($"// END\n");
+                        
                         // Removing the reference from the input
-                        result = input.Replace($"{{{referencedVar}}}/", "");
+                        finalGetNodePath = nodePath.Replace($"{{{referencedVarName}}}/", "");
                             
                         // GetNode-ing it
-                        getNodeCaller = $"{referencedVar}.";
-                    }
+                        getNodeCaller = $"{referencedVarName}";
                         
+                        // Deprecation warning
+                        string deprecationNotice = $"Use `[GetNode(nameof({referencedVarName}), \"{finalGetNodePath}\")]` instead";
+                        Diagnostic.Create(new DiagnosticDescriptor(
+                            "UnsafeDeprecatedNodeReference",
+                            deprecationNotice,
+                            "",
+                            "Deprecated",
+                            DiagnosticSeverity.Warning,
+                            isEnabledByDefault: true
+                        ), Location.None);
+                        // context.ReportDiagnostic
+                    }
+                    #endregion
+
+                    if (nodeParent != null) {
+                        getNodeCaller = nodeParent;
+                    }
+                    
                     // Adding the field
-                    fields.Add($"{testClass.Name} = {getNodeCaller}GetNode<{testClass.Type.Name}>(\"{result}\");");
+                    string getNodeCallerToken = getNodeCaller.Length > 0 ? $"{getNodeCaller}." : "";
+                    fields.Add($"{testClass.Name} = {getNodeCallerToken}GetNode<{testClass.Type.Name}>(\"{finalGetNodePath}\");");
                 }
             }
         }
         catch (Exception ex) {
-            Log.Add($"Error parsing syntax: {ex}");
+            // TODO: FIXME: once one file errors, all of them error.. uhh
+            string err = $"Error parsing syntax: {ex}";
+            CodeLog.Add($"// {err}");
+            throw new Exception(err);
         }
     }
 }

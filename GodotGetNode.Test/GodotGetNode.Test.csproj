@@ -1,28 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <IsPackable>false</IsPackable>
         <RootNamespace>GodotGetNode.Test</RootNamespace>
+        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+        <CompilerGeneratedFilesOutputPath>../Generated</CompilerGeneratedFilesOutputPath>
     </PropertyGroup>
 
-    <!--ItemGroup>
+    <ItemGroup>
         <ProjectReference Include="..\GodotGetNode\GodotGetNode.csproj"
                           OutputItemType="Analyzer"
                           ReferenceOutputAssembly="true"/>
+    </ItemGroup>
+    
+    <!--ItemGroup>
+        <ProjectReference Include="..\GodotGetNode\GodotGetNode.csproj" />
+    </ItemGroup-->
+
+    <ItemGroup>
+      <PackageReference Include="GodotSharp" Version="*" />
+    </ItemGroup>
+
+    <!--ItemGroup>
+        <Content Include=".\obj\Debug\net7.0\generated\GodotGetNode\GetNodeGenerator\**">
+            <Link>Generated/Generated</Link>
+        </Content>
     </ItemGroup-->
     
     <ItemGroup>
-        <ProjectReference Include="..\GodotGetNode\GodotGetNode.csproj" />
-        <!--ProjectReference Include="GodotGetNode"
-                          Version="0.1.2-alpha6"
-                          OutputItemType="Analyzer"
-                          ReferenceOutputAssembly="true"/-->
+        <Content Include="..\Generated\GodotGetNode\GetNodeGenerator\**">
+            <Link>Generated/Generated</Link>
+        </Content>
     </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="GodotSharp" Version="4.1.1" />
-      <PackageReference Include="GodotSharpEditor" Version="4.1.1" />
-    </ItemGroup>
-
 </Project>
