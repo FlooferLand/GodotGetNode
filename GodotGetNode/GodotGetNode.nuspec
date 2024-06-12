@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>GodotGetNode</id>
-        <version>0.2.1</version>
+        <version>0.2.2</version>
         <authors>FlooferLand</authors>
         <readme>README.md</readme>
         <releaseNotes>RELEASE-NOTES.md</releaseNotes>

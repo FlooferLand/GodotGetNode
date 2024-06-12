@@ -27,7 +27,7 @@
 /// </summary>
 [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
 public class GetNode : Attribute {
-	public string? NodePathParent { get; private set; }
+	public string NodePathParent { get; private set; }
 	public string NodePath { get; private set; }
 	
 	/// Empty constructor; Will assume the name of the node using the type name (Won't work in all cases!)
@@ -35,6 +35,7 @@ public class GetNode : Attribute {
 	
 	/// <param name="nodePath">The path to the node you wish to get (ex: <c>Player/Head/Camera</c>)</param>
 	public GetNode(string nodePath) {
+		NodePathParent = string.Empty;
 		NodePath = nodePath;
 	}
 	

@@ -3,7 +3,7 @@
         <PackageId>GodotGetNode</PackageId>
         <NuspecFile>GodotGetNode.nuspec</NuspecFile>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>0.2.1</Version>
+        <Version>0.2.2</Version>
         <Authors>FlooferLand</Authors>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <TargetFramework>net6.0</TargetFramework>
