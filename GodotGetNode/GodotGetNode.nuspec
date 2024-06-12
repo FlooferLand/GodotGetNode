@@ -24,10 +24,7 @@
         <file src="*.dll"
               target="analyzers\dotnet\cs"
               exclude="**\Microsoft.CodeAnalysis.*;**\System.Collections.Immutable.*;**\System.Reflection.Metadata.*;**\System.Composition.*" />
-        
-        <file src="bin\Release\netstandard2.0\*.dll"
-              target="analyzers/dotnet/cs" />
-        
+                
         <file src="godot_get_node\**\*.*"
               target="contentFiles/cs/any" />
     </files>
