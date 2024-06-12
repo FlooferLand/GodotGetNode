@@ -4,6 +4,7 @@
         <id>GodotGetNode</id>
         <version>0.2.1</version>
         <authors>FlooferLand</authors>
+        <readme>README.md</readme>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <license type="expression">MIT</license>
         <!-- <icon>icon.png</icon> -->
