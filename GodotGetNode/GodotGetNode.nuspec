@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>GodotGetNode</id>
-        <version>0.1.4</version>
+        <version>0.2.0</version>
         <authors>FlooferLand</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <license type="expression">MIT</license>

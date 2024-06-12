@@ -37,10 +37,10 @@ If you do encounter any issues, please [open up an issue or a PR on the reposito
 ## Compatibility
 _Actively tested for Godot 4.x_
 
-|        | Godot 3.x | Godot 4.x      |
-|--------|-----------|----------------|
-| 0.1.3  | Likely    | ✔              |
-| 0.1.4  | Untested  | ✔              |
+| Version | Godot 3.x | Godot 4.x |
+|---------|-----------|-----------|
+| 0.1.x   | Likely    | ✔         |
+| 0.2.x   | Untested  | ✔         |
 
 ## Roadmap
 - [x] Optionally allow specifying a variable name to the left of the node path string
