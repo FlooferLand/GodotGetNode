@@ -9,18 +9,15 @@ using Godot;
 
 public partial class MyNode : Node2D {
 	// Specify the name of the node
-	[GetNode("CoolSprite")] Sprite2D sprite;
-    
-	// Guess the name based on the default type name ("VBoxContainer" in this case)
-	[GetNode] VBoxContainer container;
+	[GetNode("Player")] CharacterBody2D player;
 
 	// Custom syntax to get a node relative to another node!
-	[GetNode(nameof(container), "PanelContainer/Label"] Label relative2;
+	[GetNode(nameof(player), "Sprite")] Sprite2D sprite;
 	// .. or a neater, but type unsafe syntax:
-	[GetNode("{container}/PanelContainer/Label"] Label relative1;
+	[GetNode("{player}/Sprite")] Sprite2D sprite;
     
 	public override void _Ready() {
-		// No more GetNode<Type>("Name") over here!
+		// No more GetNode<Sprite2D>("Player/Sprite") over here!
 	}
 }
 ```
@@ -41,6 +38,12 @@ _Actively tested for Godot 4.x_
 |---------|-----------|-----------|
 | 0.1.x   | Likely    | ✔         |
 | 0.2.x   | Untested  | ✔         |
+
+All this project does is generate some `GetNode<>()`s on `TreeEntered` using types and names extracted from your code,
+so theoretically it should work on Godot 3.x
+
+The .NET version and features the project is using might block use on 3.x though.
+If you use 3.x and this project doesn't work, please [open up an issue](https://github.com/FlooferLand/GodotGetNode/issues) and I will fix it right away!
 
 ## Roadmap
 - [x] Optionally allow specifying a variable name to the left of the node path string
