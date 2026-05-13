@@ -28,11 +28,9 @@ public partial class MyNode : Node2D {
 ```
 
 ## Note
-This repo might seem inactive, but this project works just fine.
+This repo might be inactive, but this project should work just fine.
 
-I don't update this repo often as it doesn't need any updates, but I've been using it myself in my own Godot projects for about a year now as of the time I'm writing this.
-
-If you do encounter any issues, please [open up an issue or a PR on the repository!](https://github.com/FlooferLand/GodotGetNode/issues)
+Using `[Export]` has largely replaced the need for this attribute
 
 ![Hide inlays in your IDE for the best experience](https://raw.githubusercontent.com/FlooferLand/GodotGetNode/main/hideInlays.png)
 
